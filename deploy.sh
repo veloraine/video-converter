@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo 'Installing dependencies'
-python3 pip install -r requirements.txt
+pip install -r requirements.txt
 
 echo 'Migrating database'
 python3 manage.py migrate
