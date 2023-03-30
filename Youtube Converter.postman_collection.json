@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "65a0a739-0f96-423d-b90e-33cedd3d7158",
 		"name": "Youtube Converter",
+		"description": "Kumpulan API untuk mengunduh file mp3 maupun mp4 dari URL YouTube yang diberikan. Service akan dijalankan secara asynchronus menggunakan multithreading dan hanya akan bisa didownload ketika hasilnya sudah selesai",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "22384807"
 	},
@@ -32,7 +33,8 @@
 								"youtube",
 								"process_audio"
 							]
-						}
+						},
+						"description": "Memberikan URL YouTube untuk diproses menjadi mp3. Pemrosesan akan dilakukan secara asynchronus"
 					},
 					"response": [
 						{
@@ -50,10 +52,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/youtube/process_audio",
+									"raw": "localhost:8000/youtube/process_audio",
 									"host": [
-										"{{url}}"
+										"localhost"
 									],
+									"port": "8000",
 									"path": [
 										"youtube",
 										"process_audio"
@@ -203,7 +206,8 @@
 									"value": "3"
 								}
 							]
-						}
+						},
+						"description": "Mengecek status proses konversi berdasarkan ID yang diberikan pada endpoint sebelumnya"
 					},
 					"response": [
 						{
@@ -212,10 +216,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/youtube/status?request_id=3",
+									"raw": "localhost:8000/youtube/status?request_id=3",
 									"host": [
-										"{{url}}"
+										"localhost"
 									],
+									"port": "8000",
 									"path": [
 										"youtube",
 										"status"
@@ -438,7 +443,8 @@
 									"value": "5"
 								}
 							]
-						}
+						},
+						"description": "Mendownload hasil konversi yang telah dilakukan berdasarkan ID yang diberikan dalam format mp3"
 					},
 					"response": [
 						{
@@ -447,10 +453,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/youtube/get_audio?request_id=3",
+									"raw": "localhost:8000/youtube/get_audio?request_id=3",
 									"host": [
-										"{{url}}"
+										"localhost"
 									],
+									"port": "8000",
 									"path": [
 										"youtube",
 										"get_audio"
@@ -653,7 +660,8 @@
 						}
 					]
 				}
-			]
+			],
+			"description": "Berisi kumpulan API untuk memproses URL YouTube ke dalam format mp3 yang dapat didownload"
 		},
 		{
 			"name": "Video",
@@ -681,7 +689,8 @@
 								"youtube",
 								"process_video"
 							]
-						}
+						},
+						"description": "Memberikan URL YouTube untuk diproses menjadi mp4. Pemrosesan akan dilakukan secara asynchronus"
 					},
 					"response": [
 						{
@@ -699,10 +708,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/youtube/process_video",
+									"raw": "localhost:8000/youtube/process_video",
 									"host": [
-										"{{url}}"
+										"localhost"
 									],
+									"port": "8000",
 									"path": [
 										"youtube",
 										"process_video"
@@ -779,7 +789,8 @@
 									"value": "7"
 								}
 							]
-						}
+						},
+						"description": "StartFragment\n\nMengecek status proses konversi berdasarkan ID yang diberikan pada endpoint sebelumnya\n\n  \n\nEndFragment"
 					},
 					"response": [
 						{
@@ -788,10 +799,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/youtube/status?request_id=6",
+									"raw": "localhost:8000/youtube/status?request_id=6",
 									"host": [
-										"{{url}}"
+										"localhost"
 									],
+									"port": "8000",
 									"path": [
 										"youtube",
 										"status"
@@ -944,7 +956,8 @@
 									"value": "7"
 								}
 							]
-						}
+						},
+						"description": "Mendownload hasil konversi yang telah dilakukan berdasarkan ID yang diberikan dalam format mp4"
 					},
 					"response": [
 						{
@@ -953,10 +966,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/youtube/download_mp4?request_id=5",
+									"raw": "localhost:8000/youtube/download_mp4?request_id=5",
 									"host": [
-										"{{url}}"
+										"localhost"
 									],
+									"port": "8000",
 									"path": [
 										"youtube",
 										"download_mp4"
@@ -1160,6 +1174,26 @@
 					]
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [
